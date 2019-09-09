@@ -1,7 +1,8 @@
 package autopilot_dsl
 
+import autopilot_dsl.Directions.*
 
-class RoadSample{
+open class RoadSample{
     public var lengthBefore = 50
     public var lengthAfter = 50
     public var directions = ArrayList<Directions>()
@@ -10,8 +11,17 @@ class RoadSample{
 
 }
 
+class Crossroad: RoadSample()
+{
+    init {
+        this.directions = listOf<Directions>(STRAIGT, LEFT, RIGHT, BACK) as ArrayList<Directions>
+    }
+
+}
+
+
 enum class Directions{
-    STRAIGT, LEFT, RIGHT, LEFT45, RIGHT45
+    STRAIGT, LEFT, RIGHT, BACK, LEFT45, RIGHT45
 }
 
 enum class Signs {
